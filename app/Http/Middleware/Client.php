@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckRole
+class Client
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,10 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || Auth::user()->role !== $role) {
-            return redirect('/login');
+        if (!Auth::check() || Auth::user()->role_id !== 2) {
+            return redirect('/admin/dashboard');
         }
-
+        
         return $next($request);
     }
 }
