@@ -45,23 +45,38 @@
 </head>
 <body>
     <div class="register-container">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('message')}}
+            </div>
+        @endif
         <h2 class="text-center">Register</h2>
-        <form>
+        <form action="" method="post">
+            @csrf 
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" placeholder="Choose a username" required>
+                <input type="text" class="form-control" name="username" id="username" placeholder="Choose a username">
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Create a password">
             </div>
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+                <input type="tel" class="form-control" name="phone" id="phone" placeholder="Enter your phone number">
             </div>
             <div class="mb-3">
                 <label for="address" class="form-label">Address</label>
-                <textarea class="form-control" id="address" rows="3" placeholder="Enter your address" required></textarea>
+                <textarea class="form-control" name="address" id="address" rows="3" placeholder="Enter your address"></textarea>
             </div>
             <div class="d-grid">
                 <button type="submit" class="btn btn-custom btn-block">Register</button>
