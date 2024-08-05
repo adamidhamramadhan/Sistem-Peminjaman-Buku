@@ -1,64 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - Sistem Peminjaman Buku</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
-    <div class="sidebar">
-        <h2>Admin Dashboard</h2>
-        <ul>
-            <li><a href="#dashboard">Dashboard</a></li>
-            <li><a href="#books">Daftar Buku</a></li>
-            <li><a href="#addBook">Tambah Buku</a></li>
-            <li><a href="#loanSettings">Pengaturan Peminjaman</a></li>
-        </ul>
+@extends('layout.dashboard')
+
+@section('tittle', 'Dashboard')
+
+@section('content')
+    <main id="main" class="main">
+
+    <div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+        <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+    </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+    <div class="row">
+
+        <!-- Left side columns -->
+        <div class="col-lg-12">
+        <div class="row">
+
+            <!-- Sales Card -->
+            <div class="col-xxl-4 col-md-4">
+            <div class="card info-card sales-card">
+                <div class="card-body">
+                <h5 class="card-title">Total Pendaftar</h5>
+
+                <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ps-3">
+                    <h6></h6>
+
+                    </div>
+                </div>
+                </div>
+
+            </div>
+            </div><!-- End Sales Card -->
+
+            <!-- Revenue Card -->
+            <div class="col-xxl-4 col-md-4">
+            <div class="card info-card revenue-card">
+
+                <div class="card-body">
+                <h5 class="card-title">Pendaftar Tidak Lolos</h5>
+
+                <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ps-3">
+                    <h6></h6>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+            </div><!-- End Revenue Card -->
+
+            <!-- Customers Card -->
+            <div class="col-xxl-4 col-xl-4">
+
+            <div class="card info-card customers-card">
+
+                <div class="card-body">
+                <h5 class="card-title">Pendaftar Lolos</h5>
+
+                <div class="d-flex align-items-center">
+                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-people"></i>
+                    </div>
+                    <div class="ps-3">
+                    <h6></h6>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+
+            </div><!-- End Customers Card -->
+
+
+        </div>
+        </div><!-- End Left side columns -->
+
     </div>
-    <div class="content">
-        <section id="dashboard">
-            <h1>Dashboard</h1>
-            <!-- Konten Dashboard -->
-        </section>
+    </section>
 
-        <section id="books">
-            <h1>Daftar Buku</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Judul</th>
-                        <th>Pengarang</th>
-                        <th>Genre</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Daftar buku akan ditampilkan di sini -->
-                </tbody>
-            </table>
-        </section>
-
-        <section id="addBook">
-            <h1>Tambah Buku</h1>
-            <form id="addBookForm">
-                <label for="title">Judul:</label>
-                <input type="text" id="title" name="title" required>
-                <label for="author">Pengarang:</label>
-                <input type="text" id="author" name="author" required>
-                <label for="genre">Genre:</label>
-                <input type="text" id="genre" name="genre" required>
-                <button type="submit">Tambah Buku</button>
-            </form>
-        </section>
-
-        <section id="loanSettings">
-            <h1>Pengaturan Peminjaman</h1>
-            <!-- Pengaturan Peminjaman akan ditampilkan di sini -->
-        </section>
-    </div>
-
-    <script src="{{ asset('js/script.js') }}"></script>
-</body>
-</html>
+    </main><!-- End #main -->
+@endsection

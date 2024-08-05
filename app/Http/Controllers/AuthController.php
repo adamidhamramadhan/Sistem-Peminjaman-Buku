@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Session;
 class AuthController extends Controller
 {
     public function login(){
-        return view('login');
+        return view('/app/login');
     }
     public function register(){
-        return view('register');
+        return view('/app/register');
     }
     public function authenticating(Request $request){
         $credentials = $request->validate([
@@ -31,7 +31,7 @@ class AuthController extends Controller
 
                 Session::flash('status', 'failed');
                 Session::flash('message', 'your account is not active, please contact admin');
-                return redirect('/login');
+                return redirect('login');
             }
 
             $request->session()->regenerate();
@@ -46,7 +46,7 @@ class AuthController extends Controller
         }
         Session::flash('status', 'failed');
         Session::flash('message', 'login invalid');
-        return redirect('/login');
+        return redirect('login');
     }
     public function logout(Request $request)
     {
